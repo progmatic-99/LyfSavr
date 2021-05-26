@@ -1,99 +1,35 @@
-<p align="center"><img src="https://github.com/elastic/app-search-reference-ui-react/blob/master/logo-app-search.png?raw=true" alt="Elastic App Search Logo"></p>
+# LyfSaver
+This project will provide all covid resources such as oxygen cylinders, medicine, food, and others. It uses the elastic search in the backend to optimize the results. 
 
-> A configurable, generic search UI for
-> any [Elastic App Search](https://www.elastic.co/products/app-search) Engine.
+## Web Preview
+<p>
+    <img src="LYF-SAVER.png" alt="web preview">
+</p>
 
-## Contents
+## Inspiration
+All of us have lost someone in this pandemic and a third wave is also approaching. This site provides all types of verified resources so that noone loses their life.
 
-- [Getting started](#getting-started-)
-- [Usage](#usage)
-- [FAQ](#faq-)
-- [Contribute](#contribute-)
-- [License](#license-)
+## What it does
+LyfSavr fetches data of resources like Oxygen cylinders, availability of beds in Hospitals, important medicines like Fabiflu, Ambulance and provides a search engine to search for any type of resources and also sort them according to your state, last update status, availability of the resource and verification of the resource.
 
----
+## How we built it
+We used requests python lib to fetch the latest data from cowin portal and post-ed that data to elasticseach using the elastic_enterprise_search python package. 
+We created the frontend to query our database of resources with react reference UI.
 
-## Getting started 🐣
+## Challenges we ran into
+How to customize the site for better UI/UX.
+Authentication of user to post data and query the database from the frontend.
 
-The Reference UI is great for:
+## Accomplishments that we're proud of
+We got  a hang of the elastic stack in pretty less time and made a working product in the given time.
 
-- search demos
-- functional tests of App Search Engine data
-- a starting point for new search experiences
+## What we learned
+Elasticsearch, Distributed systems, React render-props
 
-Requires [npm](https://www.npmjs.com/).
+## What's next for LyfSaver
+We want to upgrade the UI/UX of the web-app and make it a PWA.
 
-The README assumes that you have generated this code from within the App Search dashboard.
 
-Run the following commands to start this application:
-
-```bash
-# Run the `cd` command to change the current directory to the
-# location of your downloaded Reference UI. Replace the path
-# below with the actual path of your project.
-cd ~/Downloads/app-search-reference-ui
-
-# Run this to set everything up
-npm install
-
-# Run this to start your application and open it up in a new browser window
-npm start
-```
-
-## Usage
-
-### Updating configuration
-
-The project can be configured via a JSON [config file](src/config/engine.json).
-
-You can easily control things like...
-
-- The Engine the UI runs against
-- Which fields are displayed
-- The filters that are used
-
-If you would like to make configuration changes, there is no need to regenerate
-this app from your App Search Dashboard!
-
-You can simply open up the
-[engine.json](src/config/engine.json) file, update the [options](#config),
-and then restart this app.
-
-### Configuration options <a id="config"></a>
-
-The following is a complete list of options available for configuration in [engine.json](src/config/engine.json).
-
-| option               | value type    | required/optional | source                                                                                                                                                                                          |
-| -------------------- | ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `engineName`         | String        | required          | Found in your App Search Dashboard.                                                                                                                                                             |
-| `endpointBase`       | String        | required*         | (*) Elastic Enterprise Search deployment URL, example: "http://127.0.0.1:3002". Not required if using App Search on swiftype.com.                                                               |
-| `hostIdentifier`     | String        | required*         | (*) Only required if using App Search on swiftype.com.                                                                                                                                          |
-| `searchKey`          | String        | required          | Found in your App Search Dashboard.                                                                                                                                                             |
-| `searchFields`       | Array[String] | required          | A list of fields that will be searched with your search term.                                                                                                                                   |
-| `resultFields`       | Array[String] | required          | A list of fields that will be displayed within your results.                                                                                                                                    |
-| `querySuggestFields` | Array[String] | optional          | A list of fields that will be searched and displayed as query suggestions.                                                                                                                      |
-| `titleField`         | String        | optional          | The field to display as the title in results.                                                                                                                                                   |
-| `urlField`           | String        | optional          | A field with a url to use as a link in results.                                                                                                                                                 |
-| `sortFields`         | Array[String] | optional          | A list of fields that will be used for sort options.                                                                                                                                            |
-| `facets`             | Array[String] | optional          | A list of fields that will be available as "facet" filters. Read more about facets within the [App Search documentation](https://www.elastic.co/guide/en/app-search/current/facets-guide.html). |
-
-### External configuration
-
-If you are embedding this app inside of another page, and you would like to
-source the configuration from outside of the `engine.json` file,
-you can simply write the configuration directly to `window.appConfig`.
-
-### If you are checking this project out directly from GitHub... <a id="github"></a>
-
-You can follow the previous steps, but then you will need to configure
-[engine.json](src/config/engine.json).
-
-To do so, make a copy of [engine.json.example](src/config/engine.json.example),
-rename it to `engine.json` and configure it with your Engine's specific details.
-
-```bash
-cp src/config/engine.json.example src/config/engine.json
-```
 
 ## Deploy and Share
 
@@ -109,31 +45,6 @@ netlify deploy # enter ./build as the deploy path
 
 You'll then simply follow the command prompt to log into Netlify and deploy your site. This can be completed in just a few minutes.
 
-## Customization
-
-This project is built with [Search UI](https://github.com/elastic/search-ui), which is a React library for building search experiences. If you're interested in using this project as a base for your own, most of
-what you'll need can be found in the Search UI documentation.
-
-## FAQ 🔮
-
-### Where do I report issues with the Reference UI?
-
-If something is not working as expected, please open an [issue](https://github.com/elastic/app-search-reference-ui-react/issues/new).
-
-### Where can I learn more about App Search?
-
-Your best bet is to read the [documentation](https://www.elastic.co/guide/en/app-search/current).
-
-### Where else can I go to get help?
-
-You can checkout the [Elastic App Search community discuss forums](https://discuss.elastic.co/c/app-search).
-
-## Contribute 🚀
-
-We welcome contributors to the project. Before you begin, a couple notes...
-
-- Before opening a pull request, please create an issue to [discuss the scope of your proposal](https://github.com/elastic/app-search-reference-ui-react/issues).
-- Please write simple code and concise documentation, when appropriate.
 
 ## License 📗
 
